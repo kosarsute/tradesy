@@ -37,7 +37,4 @@ Google Chrome Version 97.0.0
 
 
 
-DONT FORGET 144 TIMEOUT
-
-
 
