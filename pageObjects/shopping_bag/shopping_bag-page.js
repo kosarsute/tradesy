@@ -10,6 +10,7 @@ class ShoppingBag {
     get $checkoutBtn() { return $(".checkout-btn"); }
     get $$safeForLaterBtn() { return $$('.cart-save-for-later'); }
     get $savedItemsCount() { return $('[id="saved_items_count"]'); }
+    get $$itemRowInBag() { return $$('[class="cart-item row"]'); }
 
     // Method to calculate total price for the items in the Cart without tax costs
     getShoppingBagTotalWithoutTax() {

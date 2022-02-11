@@ -5,7 +5,6 @@ class Homepage {
     get $cartIcon() { return $('[aria-label="Cart"]'); }
 
     // Helper method to navigate to submenu by textlabel
-
     NavigateToSubmenuByText(menulabel) {
         const siteMenu = {};
         browser.waitUntil(() => {

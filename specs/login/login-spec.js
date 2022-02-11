@@ -27,18 +27,16 @@ describe("Challenge", () => {
         // Navigate to the shoping cart
         Homepage.$cartIcon.click()
         ShoppingBag.$checkoutBtn.waitForDisplayed()
-        // I would validate that bags i added the same in shoping bag and have the same price... i just figured that i have to collect data from product page because name of the product cuting in a shoulders bag page and it goes without Brand name which affects valitation
-       // I would also create option if bag was already reserved to go over second bag and so on
-      // Validate items count same as amount you added
+      // Validate items count, name and price
        expect(Object.keys(ShopingCartItems).length).to.equal(
-            $$('[class="cart-item row"]').length
+            ShoppingBag.$$itemRowInBag.length
           );
-         // $$('[class="cart-item row"]').every((i) => {
-         ///expect(ShopingCartItems).to.contain(i.$("//*[@class='cart-item-name-seller columns']/a").getText());
-        //     expect(ShopingCartItems[i.$("//*[@class='cart-item-name-seller columns']/a").getText()]).to.equal(
-        //       parseFloat(i.$(".item-price").getText().replace("$", "").replace(",",""))
-        //     );
-        //   })
+         ShoppingBag.$$itemRowInBag.every((i) => {
+         expect(ShopingCartItems).to.have.property(i.$("//*[@class='cart-item-name-seller columns']/a").getText());
+            expect(ShopingCartItems[i.$("//*[@class='cart-item-name-seller columns']/a").getText()]).to.equal(
+              parseFloat(i.$(".small-9 .item-price").getText().replace("$", "").replace(",",""))
+            );
+          })
         // Check the total price of cart items is correct
         expect(
             parseFloat(
